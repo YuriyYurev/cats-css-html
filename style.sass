@@ -1,0 +1,170 @@
+p, h1, h2, h3, h4, h5, h6 
+  padding: 0
+  margin: 0
+
+@font-face
+  font-family: 'Trebuchet MS'
+  src: url(../fonts/TrebuchetMSregular.ttf)
+  font-weight: regular
+
+body
+  font-family: 'Trebuchet MS', sans-serif
+  background-image: url(../image/Shadow.png)
+.product__suptitle.hovered__text
+  color: #d91667
+  display: none
+.overlay
+  position: absolute
+  z-index: 999
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  background: rgba(179, 179, 179, .7)
+  display: none
+.title
+  font-family: 'Exo 2', sans-serif;
+  color: white
+  font-size: 36px
+  font-weight: 100
+  padding:
+    top: 37px
+  margin:
+    bottom: 27px
+  text-align: center
+.container 
+  max-width: 1125px 
+  width: 100%
+  padding: 0 15px
+  margin: 0 auto
+.product
+  color: white
+  &__wrap
+    display: flex
+    justify-content: space-between
+    flex-wrap: wrap
+    margin: 0 -15px
+  &__item
+    max-width: 320px
+    width: 100%
+    display: flex
+    flex-direction: column
+    margin: 0 15px
+      bottom: 25px
+  &__card
+    cursor: pointer
+    padding:
+      top: 18px
+      left: 43px
+    clip-path: polygon(15% 0, 100% 0, 100% 100%, 0 100%, 0 10%)
+    color: #666666
+    position: relative
+    background: white
+    background-image: url(../image/Photo.png)
+    background-repeat: no-repeat
+    background-position: 45% 180%
+    border: 4px solid #1698d9
+    border-radius: 10px
+    height: 457px
+    margin-bottom: 14px
+    &::after
+      content: ''
+      display: block
+      position: absolute
+      background: #1698d9
+      transform: rotate(45deg)
+      width: 4px 
+      height: 70px
+      left: 20px
+      top: -15px
+  &__suptitle
+    display: block
+    font-size: 16px
+    font-weight: normal
+    margin-bottom: 6px
+  &__title
+    font-size: 48px
+    font-weight: bold
+    display: block
+    color: black
+  &__subtitle
+    font-size: 24px
+    color: black
+    font-weight: bold
+  &__list
+    list-style: none
+    padding: 0
+    font-size: 14px
+  &__volume
+    background: #1698d9
+    width: 80px
+    height: 80px 
+    border-radius: 50%
+    color: white
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+    position: absolute
+    right: 13px
+    bottom: 13px
+    &-num
+      font-size: 41px
+      line-height: 38px
+    &-text
+      font-size: 19px
+  &__buy
+    align-self: center
+    font-size: 13px
+    &-link
+      cursor: pointer
+      border-bottom: 1px dashed #1698d9
+      color: #1698d9
+      transition: all .2s linear
+      &:hover
+        color: #d1d152
+        border-bottom: 1px dashed #d1d152
+  &__item.selected > .product__card
+    border: 4px solid #d91667
+    &::after
+      background: #d91667
+    & > .product__volume
+      background: #d91667
+  &__item.hovered > .product__card
+    border: 4px solid lighten(#1698d9, 10%)
+    &::after
+      background: lighten(#1698d9, 10%)
+    & > .product__volume
+      background: lighten(#1698d9, 10%)
+  &__item.disabled > .product__card
+    border: 4px solid #b3b3b3
+    cursor: not-allowed
+    &::after
+      background: #b3b3b3
+    & > .product__volume
+      background: #b3b3b3
+    & > .overlay
+      display: flex
+  &__item.selected.hovered > .product__card
+    border: 4px solid lighten(#d91667, 10%)
+    &::after
+      background: lighten(#d91667, 10%)
+    & > .product__volume
+      background: lighten(#d91667, 10%)
+    & > .product__suptitle
+      display: none
+    & >.product__suptitle.hovered__text
+      display: block
+@media screen and (max-width: 1024px) 
+  .product__wrap
+    justify-content: space-around
+@media screen and (max-width: 676px)
+  .product__item
+    max-width: 290px
+  .product__card::after
+    transform: rotate(42deg)
+    left: 18px
+  .product__wrap
+    margin: 0
+  .container
+    padding: 0
